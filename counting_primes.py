@@ -1,7 +1,19 @@
 #Given two integers N and M, count the number of prime numbers between N and M (both inclusive)
 
+import math
+
 def is_prime(number):
-    return number > 1 and all(number % i for i in xrange(2, number))
+    if number == 2:
+        return True
+    if number % 2 == 0 or number <= 1:
+        return False
+
+    sqr = int(math.sqrt(number)) + 1
+
+    for divisor in range(3, sqr, 2):
+        if number % divisor == 0:
+            return False
+    return True
 
 def counting_primes(N,M):
     primes_count = 0
