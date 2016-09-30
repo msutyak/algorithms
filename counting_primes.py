@@ -1,14 +1,12 @@
 #Given two integers N and M, count the number of prime numbers between N and M (both inclusive)
 
-import math
-
 def is_prime(number):
     if number == 2:
         return True
     if number % 2 == 0 or number <= 1:
         return False
 
-    sqr = int(math.sqrt(number)) + 1
+    sqr = int(number**0.5) + 1
 
     for divisor in range(3, sqr, 2):
         if number % divisor == 0:
